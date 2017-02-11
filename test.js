@@ -2,7 +2,7 @@ const test = require('tape');
 
 const f = require('./function');
 
-test.skip('case 1', assert => {
+test.skip('one yome record', t => {
   const records = [
     {
       creditor: "dmitry",
@@ -13,18 +13,18 @@ test.skip('case 1', assert => {
 
   const summaries = f(records);
 
-  assert.equal(summaries.length, 1);
+  t.equal(summaries.length, 1);
 
-  assert.deepEqual(summaries[0], {
+  t.deepEqual(summaries[0], {
     creditor: "dmitry",
     debitor: "Fastdev",
     sum: 1000
   });
 
-  assert.end();
+  t.end();
 });
 
-test.skip('case 2', assert => {
+test.skip('one split record - 2/3 paid', t => {
   const records = [
     {
       split: [
@@ -37,18 +37,18 @@ test.skip('case 2', assert => {
 
   const summaries = f(records);
 
-  assert.equal(summaries.length, 1);
+  t.equal(summaries.length, 1);
 
-  assert.deepEqual(summaries[0], {
+  t.deepEqual(summaries[0], {
     creditor: "dmitry",
     debitor: "ivan",
     sum: 200
   });
 
-  assert.end();
+  t.end();
 });
 
-test.skip('case 3', assert => {
+test.skip('split records together with yome records', t => {
   const records = [
     {
       split: [
@@ -72,18 +72,18 @@ test.skip('case 3', assert => {
 
   const summaries = f(records);
 
-  assert.equal(summaries.length, 1);
+  t.equal(summaries.length, 1);
 
-  assert.deepEqual(summaries[0], {
+  t.deepEqual(summaries[0], {
     creditor: "ivan",
     debitor: "alex",
     sum: 250
   });
 
-  assert.end();
+  t.end();
 });
 
-test.skip('case 4', assert => {
+test.skip('one split record', t => {
   const records = [
     {
       split: [
@@ -91,35 +91,24 @@ test.skip('case 4', assert => {
         { name: "alex", sum: 900 },
         { name: "ivan", sum: 0 }
       ]
-    },
-    {
-      creditor: "Fastdev",
-      debitor: "ivan",
-      sum: "700"
     }
   ];
 
   const summaries = f(records);
 
-  assert.equal(summaries.length, 3);
+  t.equal(summaries.length, 2);
 
-  assert.deepEqual(summaries[0], {
+  t.deepEqual(summaries[0], {
     creditor: "alex",
     debitor: "dmitry",
     sum: 300
   });
 
-  assert.deepEqual(summaries[1], {
+  t.deepEqual(summaries[1], {
     creditor: "alex",
     debitor: "ivan",
     sum: 300
   });
 
-  assert.deepEqual(summaries[2], {
-    creditor: "Fastdev",
-    debitor: "ivan",
-    sum: "700"
-  });
-
-  assert.end();
+  t.end();
 });
