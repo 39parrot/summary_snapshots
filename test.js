@@ -2,7 +2,7 @@ const test = require('tape');
 
 const f = require('./function');
 
-test('case 1', assert => {
+test.skip('case 1', assert => {
   const records = [
     {
       creditor: "dmitry",
@@ -24,7 +24,7 @@ test('case 1', assert => {
   assert.end();
 });
 
-test('case 2', assert => {
+test.skip('case 2', assert => {
   const records = [
     {
       split: [
@@ -48,7 +48,7 @@ test('case 2', assert => {
   assert.end();
 });
 
-test('case 3', assert => {
+test.skip('case 3', assert => {
   const records = [
     {
       split: [
@@ -83,7 +83,7 @@ test('case 3', assert => {
   assert.end();
 });
 
-test('case 4', assert => {
+test.skip('case 4', assert => {
   const records = [
     {
       split: [
