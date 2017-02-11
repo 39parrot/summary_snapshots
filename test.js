@@ -2,7 +2,7 @@ const test = require('tape');
 
 const f = require('./function');
 
-test.skip('one yome record', t => {
+test('one yome record', t => {
   const records = [
     {
       creditor: "dmitry",
@@ -24,7 +24,7 @@ test.skip('one yome record', t => {
   t.end();
 });
 
-test.skip('one split record - 2/3 paid', t => {
+test('one split record - 2/3 paid', t => {
   const records = [
     {
       split: [
@@ -48,7 +48,7 @@ test.skip('one split record - 2/3 paid', t => {
   t.end();
 });
 
-test.skip('split records together with yome records', t => {
+test('split records together with yome records', t => {
   const records = [
     {
       split: [
@@ -83,7 +83,7 @@ test.skip('split records together with yome records', t => {
   t.end();
 });
 
-test.skip('one split record', t => {
+test('one split record', t => {
   const records = [
     {
       split: [
